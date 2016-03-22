@@ -1,0 +1,277 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      8159,        268]
+NotebookOptionsPosition[      6933,        221]
+NotebookOutlinePosition[      7271,        236]
+CellTagsIndexPosition[      7228,        233]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Propogation of Errors Calculator",
+ FontSize->36]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.4492882895694532`*^9, 3.449288298639696*^9}}],
+
+Cell[TextData[StyleBox["Here you can calculate \[Sigma] from a given \
+function.",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.449288354987475*^9, 3.449288383402893*^9}, {
+  3.4492886812803383`*^9, 3.449288700022458*^9}}],
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "function", "]"}], ",", "Expression"}], 
+  "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False],
+
+Cell[TextData[{
+ StyleBox["Function:",
+  FontSize->14],
+ StyleBox["\n",
+  FontSize->16],
+ "(note: don't use C,D,E,I,K,N or O as parameters)"
+}], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.449288719511438*^9, 3.449288766864852*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`function], Expression]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449198185163499*^9, 3.449288154918415*^9}],
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "parameters", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449198375769801*^9, 3.44919842299623*^9}}],
+
+Cell[TextData[StyleBox["Parameters (including ind. var):\n(note: must be in \
+list form, i.e. {a,b,x})",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.449288789244635*^9, 3.44928882435463*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`parameters]]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.4491984573533*^9, 3.4492881550415077`*^9}],
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "vals", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449285675646688*^9, 3.44928568682703*^9}, 
+   3.4492861887272367`*^9}],
+
+Cell[TextData[StyleBox["Parameter Values:\n(note: must be in list form, i.e. \
+{1,2,3,4})",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{
+  3.44928885115618*^9, {3.449288882799066*^9, 3.449288884901867*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`vals]]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449285687329212*^9, 3.449286529656097*^9, 
+  3.449288155071042*^9}],
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "unc", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.44919853384835*^9, 3.449198549552704*^9}, {
+  3.4492861815683203`*^9, 3.449286182614573*^9}}],
+
+Cell[TextData[StyleBox["Parameter Values:\n(note: must be in list form, i.e. \
+{1,2,3})",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{3.449288863245043*^9}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`unc]]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449198551348155*^9, 3.44928635195568*^9, 
+  3.44928815510472*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Button", "[", 
+  RowBox[{"\"\<Calculate \[Sigma]\>\"", ",", " ", 
+   RowBox[{"FrontEndExecute", "[", 
+    RowBox[{"FrontEndToken", "[", "\"\<EvaluateNotebook\>\"", "]"}], "]"}], 
+   ",", " ", "\n", "  ", 
+   RowBox[{"Appearance", " ", "->", " ", "Automatic"}], ",", " ", 
+   RowBox[{"Evaluator", " ", "->", " ", "Automatic"}], ",", " ", "\n", "  ", 
+   RowBox[{"Method", " ", "->", " ", "\"\<Preemptive\>\""}]}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449288119280684*^9, 3.4492881292328243`*^9}}],
+
+Cell[BoxData[
+ ButtonBox["\<\"Calculate \[Sigma]\"\>",
+  Appearance->Automatic,
+  ButtonFunction:>FrontEndExecute[
+    FrontEndToken["EvaluateNotebook"]],
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449288131664146*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rawsig", "=", 
+   RowBox[{"Total", "[", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{
+       SuperscriptBox[
+        RowBox[{"(", 
+         RowBox[{"D", "[", 
+          RowBox[{"function", ",", 
+           RowBox[{"parameters", "[", 
+            RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ")"}], "2"], "*", 
+       SuperscriptBox[
+        RowBox[{"unc", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "2"]}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "1", ",", 
+        RowBox[{"Length", "[", "unc", "]"}]}], "}"}]}], "]"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"value", "[", 
+    RowBox[{"list_", ",", "values_"}], "]"}], ":=", 
+   RowBox[{"MapThread", "[", 
+    RowBox[{"Set", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{"list", ",", 
+         RowBox[{"Min", "[", 
+          RowBox[{
+           RowBox[{"Length", "[", "list", "]"}], ",", 
+           RowBox[{"Length", "[", "values", "]"}]}], "]"}]}], "]"}], ",", 
+       RowBox[{"Take", "[", 
+        RowBox[{"values", ",", 
+         RowBox[{"Min", "[", 
+          RowBox[{
+           RowBox[{"Length", "[", "list", "]"}], ",", 
+           RowBox[{"Length", "[", "values", "]"}]}], "]"}]}], "]"}]}], 
+      "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"value", "[", 
+   RowBox[{"parameters", ",", "vals"}], "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"\[Sigma]", "=", 
+   RowBox[{"Sqrt", "[", "rawsig", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<\[Sigma]= \[PlusMinus]\>\"", ",", "\[Sigma]"}], 
+  "]"}], "\[IndentingNewLine]"}], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449286439926776*^9, 3.4492864439809017`*^9}, {
+  3.449286673862523*^9, 3.44928670381523*^9}, {3.44928673646568*^9, 
+  3.449286763008849*^9}, {3.4492868128097353`*^9, 3.449286820930758*^9}, {
+  3.449287538068153*^9, 3.449287541256637*^9}, {3.449287683519936*^9, 
+  3.449287684972756*^9}, {3.449287787566647*^9, 3.4492877876779613`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Sigma]= \[PlusMinus]\"\>", "\[InvisibleSpace]", 
+   "0.4612317262151579`"}],
+  SequenceForm["\[Sigma]= \[PlusMinus]", 0.4612317262151579],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{3.449288155135168*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "\"\<`*\>\"", "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.44919822646111*^9, 3.449198234674035*^9}}]
+},
+WindowSize->{640, 580},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 169, 3, 50, "Text"],
+Cell[717, 25, 242, 5, 29, "Text"],
+Cell[962, 32, 197, 7, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[1162, 41, 236, 8, 43, "Text"],
+Cell[1401, 51, 166, 3, 37, "Output"],
+Cell[1570, 56, 228, 6, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[1801, 64, 212, 4, 45, "Text"],
+Cell[2016, 70, 156, 3, 37, "Output"],
+Cell[2175, 75, 250, 7, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[2428, 84, 224, 5, 45, "Text"],
+Cell[2655, 91, 175, 4, 37, "Output"],
+Cell[2833, 97, 272, 7, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[3108, 106, 174, 4, 45, "Text"],
+Cell[3285, 112, 172, 4, 37, "Output"],
+Cell[CellGroupData[{
+Cell[3482, 120, 578, 12, 19, InheritFromParent,
+ Evaluatable->False,
+ CellOpen->False],
+Cell[4063, 134, 274, 8, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4374, 147, 2090, 56, 19, "Input",
+ CellOpen->False],
+Cell[6467, 205, 279, 7, 20, "Print"]
+}, Open  ]],
+Cell[6761, 215, 168, 4, 19, "Input",
+ CellOpen->False]
+}
+]
+*)
+
+(* End of internal cache information *)

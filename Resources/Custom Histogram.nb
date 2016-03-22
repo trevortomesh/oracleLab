@@ -1,0 +1,889 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     30224,        888]
+NotebookOptionsPosition[     26376,        738]
+NotebookOutlinePosition[     26793,        756]
+CellTagsIndexPosition[     26750,        753]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Custom Histogram From Imported Data",
+ FontSize->36,
+ FontWeight->"Bold"]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447470554862027*^9, 3.447470562090925*^9}, {
+  3.449028391434806*^9, 3.449028433465515*^9}, {3.4490286279072866`*^9, 
+  3.449028630520335*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "subdirectory", "]"}], ",", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447470951942029*^9, 3.447470958968811*^9}, {
+  3.4474710612204943`*^9, 3.447471063764474*^9}, {3.4474711326472883`*^9, 
+  3.447471133695059*^9}, {3.447471196916363*^9, 3.447471220153775*^9}, {
+  3.4474712515952387`*^9, 3.4474712723554993`*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`subdirectory], String]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.447472962118608*^9, 3.4474729967318153`*^9, {3.447473074403659*^9, 
+   3.447473169449346*^9}, {3.447473222755756*^9, 3.4474732305041656`*^9}, 
+   3.4474741291533527`*^9, 3.447474440176243*^9, {3.447474685218378*^9, 
+   3.447474697033209*^9}, 3.449014717941043*^9, 3.449014787137356*^9, 
+   3.4490235304425573`*^9, 3.4490236108072243`*^9, 3.4490249557349367`*^9, 
+   3.4490270195590982`*^9, 3.449028259572631*^9, 3.44902832434872*^9, {
+   3.4490285103634443`*^9, 3.449028536302157*^9}, 3.449195604095584*^9, {
+   3.4491956351269627`*^9, 3.4491956409254427`*^9}, {3.449195818409799*^9, 
+   3.449195821909651*^9}, {3.449195934249374*^9, 3.449195979035129*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Here you can import data from a .txt file to graph a \
+histogram. Enter the file path and the file name (with extension) below and \
+enter your parameters.",
+ FontSize->18,
+ FontColor->RGBColor[0, 0, 1]]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447473292405322*^9, 3.4474733817818737`*^9}, {
+  3.44902710972987*^9, 3.449027161889636*^9}, {3.449027280564268*^9, 
+  3.449027328245822*^9}, {3.449027380591709*^9, 3.449027412065403*^9}, {
+  3.449027493998674*^9, 3.4490274949961567`*^9}, {3.449027539517503*^9, 
+  3.449027606350788*^9}, {3.449027642513028*^9, 3.449027669000865*^9}, {
+  3.449027699290844*^9, 3.4490277326427803`*^9}}],
+
+Cell[TextData[StyleBox["File Path:",
+ FontSize->16,
+ FontColor->RGBColor[0, 0.67, 0]]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447472222451457*^9, 3.447472230012754*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"InputField", "[", 
+   RowBox[{
+    RowBox[{"Dynamic", "[", "subdirectory", "]"}], ",", " ", "String"}], 
+   "]"}], 
+  StyleBox["\[LineSeparator]",
+   Evaluatable->True], "\[LineSeparator]", 
+  StyleBox["\[LineSeparator]",
+   Evaluatable->True], "\[LineSeparator]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.4491944716038237`*^9, 3.449194489348186*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`subdirectory], String]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.44919449528983*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "filename", "]"}], ",", "String"}], "]"}]], "Input",\
+
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447471391883882*^9, 3.447471399159232*^9}, {
+  3.447471458083763*^9, 3.447471484017971*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`filename], String]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.447472962281623*^9, 3.447472996875689*^9, {3.447473074535617*^9, 
+   3.447473169595257*^9}, {3.447473222917841*^9, 3.447473230673285*^9}, 
+   3.4474741292995977`*^9, 3.4474744403651867`*^9, {3.4474746854964*^9, 
+   3.447474697299986*^9}, 3.449014718106941*^9, 3.449014787306436*^9, 
+   3.449023530613627*^9, 3.449023611000493*^9, 3.4490249559617567`*^9, 
+   3.449027019673059*^9, 3.449028259703814*^9, 3.44902832449411*^9, {
+   3.44902851049109*^9, 3.4490285364352293`*^9}, 3.449195604222101*^9, {
+   3.449195635245387*^9, 3.4491956410655003`*^9}, {3.449195818543146*^9, 
+   3.4491958220305157`*^9}, {3.4491959344039392`*^9, 3.449195979187236*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["File Name:",
+ FontSize->16,
+ FontColor->RGBColor[0, 0.67, 0]]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.44747211890691*^9, 3.447472154749979*^9}, 
+   3.449026825661766*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "IncomingData", "]"}], ",", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447472049431588*^9, 3.44747205299686*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`IncomingData], String]], "Output",
+ Editable->False,
+ CellChangeTimes->{
+  3.4474729623323183`*^9, 3.4474729969266567`*^9, {3.447473074591303*^9, 
+   3.447473169642391*^9}, {3.447473222984137*^9, 3.4474732307158203`*^9}, 
+   3.447474129348575*^9, 3.4474744404323187`*^9, {3.4474746856132803`*^9, 
+   3.44747469741782*^9}, 3.4490147181601887`*^9, 3.449014787363256*^9, 
+   3.449023530720118*^9, 3.449023611109927*^9, 3.44902495609341*^9, 
+   3.449027019729247*^9, 3.449028259758067*^9, 3.449028324533874*^9, {
+   3.449028510532539*^9, 3.4490285364897757`*^9}, 3.449195604271921*^9, {
+   3.4491956353117523`*^9, 3.449195641134286*^9}, {3.4491958186098957`*^9, 
+   3.449195822098871*^9}}]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "subdirectory", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"IncomingData", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"ReadList", "[", 
+      RowBox[{"IncomingData", ",", 
+       RowBox[{"{", "Number", "}"}]}], "]"}], ",", "1"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"FileLength", "=", 
+   RowBox[{"Length", "[", "IncomingData", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Avg", "=", 
+   FractionBox[
+    RowBox[{"Total", "[", "IncomingData", "]"}], "FileLength"]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Deviance", "=", 
+   RowBox[{"IncomingData", "-", "Avg"}]}], ";", " ", 
+  RowBox[{"StdDeviation", "=", 
+   SqrtBox[
+    FractionBox[
+     RowBox[{"Total", "[", 
+      SuperscriptBox["Deviance", "2"], "]"}], "FileLength"]]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"StandardError", "=", 
+   FractionBox["StdDeviation", 
+    RowBox[{"Sqrt", "[", "FileLength", "]"}]]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.4474714997957067`*^9, 3.447471552732769*^9}, {
+  3.447471629903243*^9, 3.447471632655259*^9}, {3.447471728079969*^9, 
+  3.44747173391474*^9}, {3.4474717677575073`*^9, 3.447471829165723*^9}, {
+  3.4490146685367937`*^9, 3.449014669008154*^9}, {3.449195859953292*^9, 
+  3.4491958710471363`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "StartingPoint", "]"}], "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447472403354176*^9, 3.4474724164802628`*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`StartingPoint]]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.447472962394121*^9, 3.447472997023177*^9, {3.4474730746853333`*^9, 
+   3.447473169705736*^9}, {3.447473223088646*^9, 3.447473230790614*^9}, 
+   3.447474129407322*^9, 3.447474440532403*^9, {3.447474685796978*^9, 
+   3.447474697586647*^9}, 3.449014718294155*^9, 3.4490147874639874`*^9, 
+   3.449023530821515*^9, 3.449023611178646*^9, 3.449024956195277*^9, 
+   3.449027019829834*^9, 3.449028259823428*^9, 3.4490283246031113`*^9, {
+   3.449028510602594*^9, 3.449028536583309*^9}, 3.449195604657916*^9, {
+   3.449195635446*^9, 3.4491956412692013`*^9}, {3.449195818743911*^9, 
+   3.449195822232141*^9}, {3.449195934515917*^9, 3.449195979341139*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Starting Point:",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447472599788769*^9, 3.4474726019309893`*^9}, {
+  3.449194589951672*^9, 3.449194610490513*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "StartingPoint", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449194635742879*^9, 3.449194642826085*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`StartingPoint]]], "Output",
+ Editable->False,
+ CellChangeTimes->{{3.449194637375053*^9, 3.449194643682535*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "BinSize", "]"}], "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447472420072888*^9, 3.447472434841473*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`BinSize]]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.447472962436141*^9, 3.447472997085424*^9, {3.447473074752183*^9, 
+   3.447473169760442*^9}, {3.447473223155447*^9, 3.447473230841824*^9}, 
+   3.447474129450115*^9, 3.447474440613402*^9, {3.447474685931314*^9, 
+   3.447474697747156*^9}, 3.449014718343871*^9, 3.44901478753675*^9, 
+   3.449023530919462*^9, 3.4490236112957067`*^9, 3.4490249563337593`*^9, 
+   3.44902701988337*^9, 3.4490282598735523`*^9, 3.4490283246672564`*^9, {
+   3.449028510665694*^9, 3.4490285366470003`*^9}, 3.449195604724299*^9, {
+   3.4491956355143623`*^9, 3.449195641328615*^9}, {3.449195818812084*^9, 
+   3.449195822298637*^9}, {3.4491959345846233`*^9, 3.449195979405736*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["BinSize:",
+ FontSize->16]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447472618345808*^9, 3.4474726309420137`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "BinSize", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449194682316758*^9, 3.4491946823294067`*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`BinSize]]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449194682875999*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "NumberOfBins", "]"}], "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.4474724426937037`*^9, 3.447472458082539*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`NumberOfBins]]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.44747296250924*^9, 3.447472997127322*^9, {3.447473074804473*^9, 
+   3.447473169815639*^9}, {3.447473223206395*^9, 3.447473230902437*^9}, 
+   3.447474129505033*^9, 3.4474744406836147`*^9, {3.447474686066313*^9, 
+   3.447474697870665*^9}, 3.449014718396315*^9, 3.449014787585505*^9, 
+   3.449023531022956*^9, 3.449023611396483*^9, 3.449024956469736*^9, 
+   3.44902701994914*^9, 3.449028259924572*^9, 3.4490283247072077`*^9, {
+   3.4490285107058487`*^9, 3.4490285367088947`*^9}, 3.4491956047940407`*^9, {
+   3.449195635581674*^9, 3.449195641383945*^9}, {3.449195818877902*^9, 
+   3.449195822368009*^9}, {3.449195934650611*^9, 3.449195979475012*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Number Of Bins:",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.4474726483100643`*^9, 3.447472652174037*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{"Dynamic", "[", "NumberOfBins", "]"}], "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.4491947136766233`*^9, 3.449194713688346*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`NumberOfBins]]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449194714758301*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "AxisLabelX", "]"}], ",", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447472461526688*^9, 3.447472507979805*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`AxisLabelX], String]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.4474729625721292`*^9, 3.447472997213429*^9, {3.447473074869629*^9, 
+   3.447473169868477*^9}, {3.4474732232609053`*^9, 3.4474732309699163`*^9}, 
+   3.447474129556744*^9, 3.447474440745143*^9, {3.447474686172439*^9, 
+   3.4474746979783297`*^9}, 3.449014718463003*^9, 3.449014787647388*^9, 
+   3.449023531123666*^9, 3.449023611513393*^9, 3.449024956601788*^9, 
+   3.449027020000701*^9, 3.4490282599781437`*^9, 3.449028324770132*^9, {
+   3.449028510767527*^9, 3.449028536761194*^9}, 3.449195604860529*^9, {
+   3.44919563564839*^9, 3.449195641450263*^9}, {3.4491958189468946`*^9, 
+   3.449195822434219*^9}, {3.4491959347185173`*^9, 3.4491959795642242`*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["X-Axis Label:",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447472676928698*^9, 3.447472681759062*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "AxisLabelX", "]"}], ",", " ", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449194743298677*^9, 3.4491947445708838`*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`AxisLabelX], String]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449194745142316*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "AxisLabelY", "]"}], ",", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447472512199513*^9, 3.447472527548152*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`AxisLabelY], String]], "Output",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{
+  3.447472962625761*^9, 3.447472997297619*^9, {3.447473074937421*^9, 
+   3.447473169949342*^9}, {3.447473223323422*^9, 3.447473231037014*^9}, 
+   3.4474741296092978`*^9, 3.447474440801434*^9, {3.447474686256921*^9, 
+   3.447474698077751*^9}, 3.449014718514433*^9, 3.449014787698804*^9, 
+   3.449023531224455*^9, 3.4490236116149673`*^9, 3.449024956738125*^9, 
+   3.449027020066803*^9, 3.449028260026052*^9, 3.449028324821074*^9, {
+   3.4490285108195066`*^9, 3.449028536827667*^9}, 3.449195604926836*^9, {
+   3.4491956357157183`*^9, 3.4491956415167418`*^9}, {3.449195819014344*^9, 
+   3.4491958225016537`*^9}, {3.449195934784718*^9, 3.4491959796481247`*^9}}]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Y-Axis Label:",
+ FontSize->14]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.447472711178938*^9, 3.447472725104525*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "AxisLabelY", "]"}], ",", " ", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449194777256241*^9, 3.449194777267235*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`AxisLabelY], String]], "Output",
+ Editable->False,
+ CellChangeTimes->{3.449194780133534*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ Editable->False,
+ CellChangeTimes->{{3.449028179168165*^9, 3.4490281801465387`*^9}}],
+
+Cell[TextData[StyleBox["Plot Label :",
+ FontSize->16]], "Text",
+ Editable->False,
+ CellChangeTimes->{{3.4490281708094797`*^9, 3.4490281747532*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"InputField", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", "HistLabel", "]"}], ",", " ", "String"}], 
+  "]"}]], "Input",
+ Editable->False,
+ Evaluatable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.449194858451388*^9, 3.4491948590664053`*^9}}],
+
+Cell[BoxData[
+ InputFieldBox[Dynamic[$CellContext`HistLabel], String]], "Output",
+ Editable->False,
+ CellChangeTimes->{{3.447216898040369*^9, 3.447216912242275*^9}, 
+   3.449194859757655*^9}],
+
+Cell[BoxData[
+ ButtonBox["\<\"Plot!\"\>",
+  Appearance->Automatic,
+  ButtonFunction:>FrontEndExecute[
+    FrontEndToken["EvaluateNotebook"]],
+  Evaluator->Automatic,
+  Method->"Preemptive"]], "Output",
+ Editable->False,
+ CellChangeTimes->{
+  3.449195605047792*^9, {3.449195635836134*^9, 3.4491956416382303`*^9}, {
+   3.449195819134554*^9, 3.449195822622389*^9}, 3.449195934904353*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Midpoints", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{"i", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", 
+       RowBox[{"StartingPoint", "+", 
+        FractionBox["BinSize", "2"]}], ",", 
+       RowBox[{"StartingPoint", "+", 
+        RowBox[{"NumberOfBins", "*", "BinSize"}]}], ",", "BinSize"}], "}"}]}],
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Histogram", "[", 
+  RowBox[{"IncomingData", ",", 
+   RowBox[{"HistogramCategories", "\[Rule]", 
+    RowBox[{"Range", "[", 
+     RowBox[{"StartingPoint", ",", 
+      RowBox[{"StartingPoint", "+", 
+       RowBox[{"NumberOfBins", "*", "BinSize"}]}], ",", "BinSize"}], "]"}]}], 
+   ",", "\[IndentingNewLine]", 
+   RowBox[{"AxesLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"AxisLabelX", ",", "AxisLabelY"}], "}"}]}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", "HistLabel"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "700"}]}], "]"}]}], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.4490279176720533`*^9, 3.449027922654269*^9}, {
+  3.449028069150537*^9, 3.449028115644549*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{
+    {Hue[0], RectangleBox[{2.3999999999999995`, 0}, {2.45, 3}]}, 
+    {GrayLevel[0], 
+     LineBox[{{2.3999999999999995`, 0}, {2.3999999999999995`, 3}, {2.45, 3}, {
+       2.45, 0}, {2.3999999999999995`, 0}}]}}, {
+    {Hue[0], RectangleBox[{2.45, 0}, {2.5, 16}]}, 
+    {GrayLevel[0], 
+     LineBox[{{2.45, 0}, {2.45, 16}, {2.5, 16}, {2.5, 0}, {2.45, 0}}]}}, {
+    {Hue[0], RectangleBox[{2.5, 0}, {2.55, 62}]}, 
+    {GrayLevel[0], 
+     LineBox[{{2.5, 0}, {2.5, 62}, {2.55, 62}, {2.55, 0}, {2.5, 0}}]}}, {
+    {Hue[0], RectangleBox[{2.55, 0}, {2.6000000000000005`, 18}]}, 
+    {GrayLevel[0], 
+     LineBox[{{2.55, 0}, {2.55, 18}, {2.6000000000000005`, 18}, {
+       2.6000000000000005`, 0}, {2.55, 0}}]}}, {
+    {Hue[0], RectangleBox[{2.6, 0}, {2.65, 1}]}, 
+    {GrayLevel[0], 
+     LineBox[{{2.6, 0}, {2.6, 1}, {2.65, 1}, {2.65, 0}, {2.6, 0}}]}}},
+  AlignmentPoint->Center,
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{
+    FormBox["\"X\"", TraditionalForm], 
+    FormBox["\"Y\"", TraditionalForm]},
+  AxesOrigin->{2.4, 0},
+  AxesStyle->{},
+  Background->None,
+  BaseStyle->{},
+  BaselinePosition->Automatic,
+  ColorOutput->Automatic,
+  ContentSelectable->Automatic,
+  CoordinatesToolOptions:>Automatic,
+  DisplayFunction:>$DisplayFunction,
+  Epilog->{},
+  FormatType:>TraditionalForm,
+  Frame->False,
+  FrameLabel->None,
+  FrameStyle->{},
+  FrameTicks->Automatic,
+  FrameTicksStyle->{},
+  GridLines->None,
+  GridLinesStyle->{},
+  ImageMargins->0.,
+  ImagePadding->All,
+  ImageSize->700,
+  ImageSizeRaw->Automatic,
+  LabelStyle->{},
+  Method->Automatic,
+  PlotLabel->FormBox["\"Histogram\"", TraditionalForm],
+  PlotRange->{{2.4, 2.65}, All},
+  PlotRangeClipping->True,
+  PlotRangePadding->Automatic,
+  PlotRegion->Automatic,
+  PreserveImageOptions->Automatic,
+  Prolog->{},
+  RotateLabel->True,
+  Ticks->{{{2.4000000000000004`, 
+      FormBox["2.4000000000000004`", TraditionalForm]}, {2.45, 
+      FormBox["2.45`", TraditionalForm]}, {2.5, 
+      FormBox["2.5`", TraditionalForm]}, {2.5500000000000003`, 
+      FormBox["2.5500000000000003`", TraditionalForm]}, {2.6, 
+      FormBox["2.6`", TraditionalForm]}, {2.6500000000000004`, 
+      FormBox["2.6500000000000004`", TraditionalForm]}}, Automatic},
+  TicksStyle->{}]], "Output",
+ Editable->False,
+ CellChangeTimes->{
+  3.449026181891212*^9, 3.449026368829858*^9, 3.4490270201213627`*^9, 
+   3.449027913426792*^9, 3.44902826015366*^9, 3.4490283249191017`*^9, {
+   3.449028510912683*^9, 3.4490285369481707`*^9}, 3.4491956053016453`*^9, {
+   3.4491956359048758`*^9, 3.449195641688896*^9}, {3.449195819183577*^9, 
+   3.4491958226909857`*^9}, {3.449195935084882*^9, 3.44919597977586*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Max=\>\"", ",", 
+    RowBox[{"Max", "[", "IncomingData", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Min=\>\"", ",", 
+    RowBox[{"Min", "[", "IncomingData", "]"}]}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Average=\>\"", ",", "Avg"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<\[Sigma]=\>\"", ",", "StdDeviation"}], "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Print", "[", 
+   RowBox[{"\"\<Standard Error=\>\"", ",", "StandardError"}], "]"}], 
+  ";"}]}], "Input",
+ Editable->False,
+ CellOpen->False,
+ CellChangeTimes->{{3.447473869150281*^9, 3.447474065629959*^9}, {
+  3.447474163622266*^9, 3.447474206242557*^9}, {3.4474742764083357`*^9, 
+  3.447474283815155*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Max=\"\>", "\[InvisibleSpace]", "2.633`"}],
+  SequenceForm["Max=", 2.633],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{
+  3.449024957058154*^9, 3.449027020208118*^9, 3.44902826021843*^9, 
+   3.4490283249966393`*^9, {3.449028510995429*^9, 3.449028537037302*^9}, 
+   3.44919560546384*^9, {3.449195635972337*^9, 3.449195641775051*^9}, {
+   3.449195819248509*^9, 3.449195822776177*^9}, {3.449195935115458*^9, 
+   3.4491959798168716`*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Min=\"\>", "\[InvisibleSpace]", "2.438`"}],
+  SequenceForm["Min=", 2.438],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{
+  3.449024957058154*^9, 3.449027020208118*^9, 3.44902826021843*^9, 
+   3.4490283249966393`*^9, {3.449028510995429*^9, 3.449028537037302*^9}, 
+   3.44919560546384*^9, {3.449195635972337*^9, 3.449195641775051*^9}, {
+   3.449195819248509*^9, 3.449195822776177*^9}, {3.449195935115458*^9, 
+   3.449195979818658*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Average=\"\>", "\[InvisibleSpace]", "2.5224800000000003`"}],
+  SequenceForm["Average=", 2.5224800000000003`],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{
+  3.449024957058154*^9, 3.449027020208118*^9, 3.44902826021843*^9, 
+   3.4490283249966393`*^9, {3.449028510995429*^9, 3.449028537037302*^9}, 
+   3.44919560546384*^9, {3.449195635972337*^9, 3.449195641775051*^9}, {
+   3.449195819248509*^9, 3.449195822776177*^9}, {3.449195935115458*^9, 
+   3.44919597982237*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\[Sigma]=\"\>", "\[InvisibleSpace]", "0.032692653609029655`"}],
+  
+  SequenceForm["\[Sigma]=", 0.032692653609029655`],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{
+  3.449024957058154*^9, 3.449027020208118*^9, 3.44902826021843*^9, 
+   3.4490283249966393`*^9, {3.449028510995429*^9, 3.449028537037302*^9}, 
+   3.44919560546384*^9, {3.449195635972337*^9, 3.449195641775051*^9}, {
+   3.449195819248509*^9, 3.449195822776177*^9}, {3.449195935115458*^9, 
+   3.449195979825972*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Standard Error=\"\>", "\[InvisibleSpace]", 
+   "0.003269265360902966`"}],
+  SequenceForm["Standard Error=", 0.003269265360902966],
+  Editable->False]], "Print",
+ Editable->False,
+ CellChangeTimes->{
+  3.449024957058154*^9, 3.449027020208118*^9, 3.44902826021843*^9, 
+   3.4490283249966393`*^9, {3.449028510995429*^9, 3.449028537037302*^9}, 
+   3.44919560546384*^9, {3.449195635972337*^9, 3.449195641775051*^9}, {
+   3.449195819248509*^9, 3.449195822776177*^9}, {3.449195935115458*^9, 
+   3.4491959798297358`*^9}}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"<<", "Graphics`Graphics`"}], ";", 
+   RowBox[{"<<", "Statistics`DataManipulation`"}]}],
+  InitializationCell->True]], "Input",
+ Editable->False,
+ CellOpen->False],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"obspkg\"\>"}], 
+  RowBox[{
+  ":", " "}], "\<\"\[NoBreak]\\!\\(\\*StyleBox[\\!\\(\\\"Graphics`Graphics`\\\
+\"\\), \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" is now \
+obsolete. The legacy version being loaded may conflict with current \
+Mathematica functionality. See the Compatibility Guide for updating \
+information.\\\\\\\"\\\", \\\"MT\\\"]\\) \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:Compatibility/Tutorials/Graphics/Graphics\\\", \
+ButtonNote -> \\\"General::obspkg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellOpen->False,
+ CellChangeTimes->{
+  3.449026364787713*^9, 3.4490270204264812`*^9, 3.44902826039966*^9, 
+   3.449028325214636*^9, {3.449028511176639*^9, 3.449028537219634*^9}, 
+   3.4491956059186068`*^9, {3.449195636284812*^9, 3.4491956420697603`*^9}, {
+   3.449195819566865*^9, 3.449195823088105*^9}, {3.449195935168866*^9, 
+   3.449195979873603*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"General", "::", "\<\"obspkg\"\>"}], 
+  RowBox[{
+  ":", " "}], \
+"\<\"\[NoBreak]\\!\\(\\*StyleBox[\\!\\(\\\"Statistics`DataManipulation`\\\"\\)\
+, \\\"MT\\\"]\\)\[NoBreak]\\!\\(\\*StyleBox[\\\"\\\\\\\" is now obsolete. The \
+legacy version being loaded may conflict with current Mathematica \
+functionality. See the Compatibility Guide for updating \
+information.\\\\\\\"\\\", \\\"MT\\\"]\\) \\!\\(\\*ButtonBox[\\\"\
+\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
+ButtonData:>\\\"paclet:Compatibility/Tutorials/Statistics/DataManipulation\\\"\
+, ButtonNote -> \\\"General::obspkg\\\"]\\)\"\>"}]], "Message", "MSG",
+ CellOpen->False,
+ CellChangeTimes->{
+  3.449026364787713*^9, 3.4490270204264812`*^9, 3.44902826039966*^9, 
+   3.449028325214636*^9, {3.449028511176639*^9, 3.449028537219634*^9}, 
+   3.4491956059186068`*^9, {3.449195636284812*^9, 3.4491956420697603`*^9}, {
+   3.449195819566865*^9, 3.449195823088105*^9}, {3.449195935168866*^9, 
+   3.449195979877087*^9}}]
+}, Open  ]]
+},
+AutoGeneratedPackage->Automatic,
+WindowSize->{1265, 704},
+WindowMargins->{{Automatic, -12}, {Automatic, 0}},
+ShowSelection->True,
+ShowCellLabel->False,
+FrontEndVersion->"7.0 for Mac OS X x86 (32-bit) (November 10, 2008)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 291, 6, 50, "Text"],
+Cell[CellGroupData[{
+Cell[716, 23, 443, 10, 19, "Input",
+ CellOpen->False],
+Cell[1162, 35, 802, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[1979, 51, 663, 11, 32, "Text"],
+Cell[2645, 64, 179, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[2849, 72, 436, 13, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[3288, 87, 143, 3, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3468, 95, 286, 8, 19, "Input",
+ CellOpen->False],
+Cell[3757, 105, 789, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[4561, 121, 204, 5, 30, "Text"],
+Cell[CellGroupData[{
+Cell[4790, 130, 262, 8, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[5055, 140, 735, 12, 37, "Output"]
+}, Open  ]],
+Cell[5805, 155, 1435, 41, 19, "Input",
+ CellOpen->False],
+Cell[CellGroupData[{
+Cell[7265, 200, 213, 5, 19, "Input",
+ CellOpen->False],
+Cell[7481, 207, 781, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[8277, 223, 201, 4, 28, "Text"],
+Cell[CellGroupData[{
+Cell[8503, 231, 232, 6, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[8738, 239, 161, 3, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8936, 247, 205, 5, 19, "Input",
+ CellOpen->False],
+Cell[9144, 254, 782, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[9941, 270, 145, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[10111, 277, 228, 6, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[10342, 285, 131, 3, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10510, 293, 212, 5, 19, "Input",
+ CellOpen->False],
+Cell[10725, 300, 783, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[11523, 316, 152, 3, 28, "Text"],
+Cell[CellGroupData[{
+Cell[11700, 323, 233, 6, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[11936, 331, 136, 3, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12109, 339, 240, 7, 19, "Input",
+ CellOpen->False],
+Cell[12352, 348, 796, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[13163, 364, 148, 3, 28, "Text"],
+Cell[CellGroupData[{
+Cell[13336, 371, 268, 8, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[13607, 381, 142, 3, 37, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13786, 389, 240, 7, 19, "Input",
+ CellOpen->False],
+Cell[14029, 398, 795, 13, 19, "Output",
+ CellOpen->False]
+}, Open  ]],
+Cell[14839, 414, 148, 3, 28, "Text"],
+Cell[CellGroupData[{
+Cell[15012, 421, 266, 8, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[15281, 431, 142, 3, 37, "Output"]
+}, Open  ]],
+Cell[15438, 437, 112, 2, 27, "Input"],
+Cell[15553, 441, 147, 3, 30, "Text"],
+Cell[CellGroupData[{
+Cell[15725, 448, 267, 8, 19, "Input",
+ Evaluatable->False,
+ CellOpen->False],
+Cell[15995, 458, 191, 4, 37, "Output"],
+Cell[16189, 464, 384, 10, 43, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16610, 479, 1098, 28, 19, "Input",
+ CellOpen->False],
+Cell[17711, 509, 2711, 71, 465, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20459, 585, 909, 27, 19, "Input",
+ CellOpen->False],
+Cell[CellGroupData[{
+Cell[21393, 616, 506, 11, 20, "Print"],
+Cell[21902, 629, 504, 11, 20, "Print"],
+Cell[22409, 642, 538, 11, 20, "Print"],
+Cell[22950, 655, 548, 12, 20, "Print"],
+Cell[23501, 669, 562, 12, 20, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[24112, 687, 210, 7, 19, "Input",
+ CellOpen->False],
+Cell[24325, 696, 1005, 18, 19, "Message",
+ CellOpen->False],
+Cell[25333, 716, 1027, 19, 19, "Message",
+ CellOpen->False]
+}, Open  ]]
+}
+]
+*)
+
